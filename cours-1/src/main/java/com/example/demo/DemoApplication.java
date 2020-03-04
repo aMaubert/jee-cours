@@ -19,7 +19,7 @@ public class DemoApplication {
         DemoApplication.testUserService();
 
         DatabaseConnectionWithSpring databaseConnectionWithSpring = context.getBean(DatabaseConnectionWithSpring.class);
-        //System.out.println(databaseConnectionWithSpring.toString());
+        System.out.println(databaseConnectionWithSpring.toString());
 
     }
     private static void testUserService() {
