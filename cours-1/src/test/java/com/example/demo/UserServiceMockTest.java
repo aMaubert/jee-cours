@@ -34,8 +34,12 @@ public class UserServiceMockTest {
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
         userService.createUser(new User("One"));
-        verify(userStore, times(1)).addUser(userArgumentCaptor.capture());
-        assertThat(userArgumentCaptor.getValue()).extracting(User::getName).isEqualTo("One");
+
+        verify(userStore, times(1))
+                .addUser(userArgumentCaptor.capture());
+        assertThat(userArgumentCaptor.getValue())
+                .extracting(User::getName)
+                .isEqualTo("One");
     }
 
 }

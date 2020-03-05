@@ -7,6 +7,7 @@ import com.example.demo.storage.IUserStore;
 import com.example.demo.storage.UserStore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -16,15 +17,15 @@ public class DemoApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 
-        DemoApplication.testUserService();
+        DemoApplication.testUserService(context);
 
         DatabaseConnectionWithSpring databaseConnectionWithSpring = context.getBean(DatabaseConnectionWithSpring.class);
         System.out.println(databaseConnectionWithSpring.toString());
 
     }
-    private static void testUserService() {
+    private static void testUserService(ApplicationContext applicationContext) {
         IUserStore userStore = new UserStore();
-        UserConfig userConfig = new UserConfig(5);
+        UserConfig userConfig = applicationContext.getBean(UserConfig.class);
         UserService userService = new UserService(userStore, userConfig);
 
         User user = new User("Allan");
