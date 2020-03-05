@@ -40,7 +40,7 @@ public class UserServiceWithSpring {
         sut.createUser(new User("One"));
         sut.createUser(new User("Two"));
         sut.createUser(new User("Three"));
-        assertThatThrownBy(() -> sut.createUser(new User("Fourth") ))
+        assertThatThrownBy(() -> sut.createUser(new User("Fourth")))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessage("Too many users");
     }

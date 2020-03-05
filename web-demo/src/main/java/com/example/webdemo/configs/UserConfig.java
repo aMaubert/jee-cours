@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.webdemo.configs;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +24,7 @@ public class UserConfig {
     private String test;
 
     @Autowired
-    public UserConfig(@Value("${app.config.user.max}") int maxUser) {
+    public UserConfig( @Value("${app.config.user.max}") int maxUser) {
         this.maxUser = maxUser;
         System.out.println("maxUser is : " + maxUser);
     }

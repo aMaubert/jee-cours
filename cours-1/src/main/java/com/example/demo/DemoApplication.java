@@ -23,6 +23,7 @@ public class DemoApplication {
         System.out.println(databaseConnectionWithSpring.toString());
 
     }
+
     private static void testUserService(ApplicationContext applicationContext) {
         IUserStore userStore = new UserStore();
         UserConfig userConfig = applicationContext.getBean(UserConfig.class);
@@ -36,7 +37,7 @@ public class DemoApplication {
         User user6 = new User("Allan");
         User user7 = new User("Allan");
 
-        try{
+        try {
             userService.createUser(user);
             userService.createUser(user2);
             userService.createUser(user3);
@@ -44,7 +45,7 @@ public class DemoApplication {
             userService.createUser(user5);
             userService.createUser(user6);
             System.out.println(userService.getUsers().toString());
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }

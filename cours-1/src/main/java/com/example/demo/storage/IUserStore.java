@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IUserStore {
     void addUser(User user);
+
     int size();
+
     List<User> getUsers();
 }

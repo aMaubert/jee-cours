@@ -47,7 +47,7 @@ public class UserServiceTest {
     @Test
     void should_throw_exception_when_too_many_users_are_inserted() {
         userConfig = new UserConfig(0);
-        userService = new UserService( userStore, userConfig);
+        userService = new UserService(userStore, userConfig);
 
 //        try{
 //            userService.createUser( new User("should_throw"));
@@ -56,7 +56,7 @@ public class UserServiceTest {
 //            assertThat(ex.getMessage()).isEqualTo("");
 //        }
 
-        assertThatThrownBy(() -> userService.createUser( new User("should_throw")))
+        assertThatThrownBy(() -> userService.createUser(new User("should_throw")))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining("Too many users");
     }
